@@ -1,0 +1,14 @@
+/home/alba/ExamenDDI/src/main/java/servlet/eliminar/eliminarChampion.java
+/home/alba/ExamenDDI/src/main/java/servlet/VerChampion.java
+/home/alba/ExamenDDI/src/main/java/servlet/insertar/InsertarChampion.java
+/home/alba/ExamenDDI/src/main/java/servlet/modelos/ChampionTip.java
+/home/alba/ExamenDDI/src/main/java/servlet/conexion/H2Connection.java
+/home/alba/ExamenDDI/src/main/java/servlet/conexion/AbstractConnection.java
+/home/alba/ExamenDDI/src/main/java/servlet/modelos/Rune.java
+/home/alba/ExamenDDI/src/main/java/servlet/modelos/item.java
+/home/alba/ExamenDDI/src/main/java/servlet/Repositorio/ChampionAbilitiRepositorio.java
+/home/alba/ExamenDDI/src/main/java/servlet/Repositorio/ChampionRepositorio.java
+/home/alba/ExamenDDI/src/main/java/servlet/modelos/ChampionStat.java
+/home/alba/ExamenDDI/src/main/java/servlet/BaseServlet.java
+/home/alba/ExamenDDI/src/main/java/servlet/modelos/Champion.java
+/home/alba/ExamenDDI/src/main/java/servlet/modelos/ChampionAbiliti.java
