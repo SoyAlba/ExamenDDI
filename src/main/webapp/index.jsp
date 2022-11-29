@@ -20,6 +20,7 @@
       	<div class="btn-group" role="group" aria-label="Basic example" >
   			<button type="button" class="btn btn-success"><a href="/InsertarCampeon.jsp">Insertar Campeones</a></button>
  			<button type="button" class="btn btn-success"><a href="/ListadoChampion.jsp">Ver Listado Campeones</a></button>
+ 			<button type="button" class="btn btn-success"><a href="/ListadoChampionAbility.jsp">buscar rango abilidades</a></button>
 		</div>
     </div>
 	<div class="col">

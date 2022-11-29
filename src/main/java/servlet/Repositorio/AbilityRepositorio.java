@@ -19,20 +19,16 @@ public class AbilityRepositorio {
 
 	
 
-	public List<ChampionAbiliti> buscar() {
+	public List<ChampionAbiliti> buscar(int uno,int dos) {
 		List<ChampionAbiliti> lista = new ArrayList<>();
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		ChampionAbiliti champion = new ChampionAbiliti();
 		try {
 			preparedStatement = conn
-					.prepareStatement("select * from champion_abilities (id,name,description,effect,cost,range)" + "VALUES (?, ?, ?,?,?,?)");
-			preparedStatement.setInt(1, champion.getId());
-			preparedStatement.setString(2, champion.getName());
-			preparedStatement.setString(3, champion.getDescription());
-			preparedStatement.setString(4, champion.getEffect());
-			preparedStatement.setInt(5, champion.getCost());
-			preparedStatement.setInt(6, champion.getRange());
+					.prepareStatement("select * from champion_abilities id,name,description,effect,cost,range when range BETWEEN ? and ?" + "VALUES (?,?)");
+			preparedStatement.setInt(1, uno);
+			preparedStatement.setInt(2, dos);
 			preparedStatement.executeUpdate();
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {

@@ -19,8 +19,9 @@ public class VerChampionAbility extends HttpServlet {
 	AbilityRepositorio repo = new AbilityRepositorio();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		List<ChampionAbiliti> champion = repo.buscar();
+		Integer uno = Integer.parseInt(req.getParameter("uno"));
+		Integer dos = Integer.parseInt(req.getParameter("dos"));
+		List<ChampionAbiliti> champion = repo.buscar(uno,dos);
 		req.setAttribute("lista", champion);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListadoAbiliti.jsp");
 		dispatcher.forward(req, resp);
