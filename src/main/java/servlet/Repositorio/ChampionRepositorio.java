@@ -37,6 +37,28 @@ public class ChampionRepositorio {
 		}
 
 	}
+	
+	public void buscar(Champion champion) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn
+					.prepareStatement("INSERT INTO champions (id,champion_name,title,lore,tags)" + "VALUES (?, ?, ?,?,?)");
+			preparedStatement.setInt(1, champion.getId());
+			preparedStatement.setString(2, champion.getName());
+			preparedStatement.setString(3, champion.getTitle());
+			preparedStatement.setString(4, champion.getLore());
+			preparedStatement.setString(5, champion.getTags());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+
+	}
 
 	public List<Champion> listAll() {
 		List<Champion> lista = new ArrayList<>();

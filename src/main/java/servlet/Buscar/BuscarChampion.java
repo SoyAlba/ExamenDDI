@@ -1,4 +1,4 @@
-package servlet.insertar;
+package servlet.Buscar;
 
 import java.io.IOException;
 import jakarta.servlet.ServletException;
@@ -10,10 +10,10 @@ import servlet.Repositorio.ChampionRepositorio;
 import servlet.modelos.Champion;
 
 @WebServlet("/insertChampion")
-public class InsertarChampion extends BaseServlet{
+public class BuscarChampion extends BaseServlet{
 
 	
-	ChampionRepositorio repository = ChampionRepositorio();
+	ChampionRepositorio repository = "call eliminar(?)";;
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
