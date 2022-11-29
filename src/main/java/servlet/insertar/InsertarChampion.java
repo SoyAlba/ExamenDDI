@@ -13,7 +13,7 @@ import servlet.modelos.Champion;
 public class InsertarChampion extends BaseServlet{
 
 	
-	ChampionRepositorio repository = ChampionRepositorio();
+	ChampionRepositorio repository = new ChampionRepositorio();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

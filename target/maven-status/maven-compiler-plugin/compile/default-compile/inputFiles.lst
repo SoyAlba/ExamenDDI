@@ -6,6 +6,7 @@
 /home/alba/ExamenDDI/src/main/java/servlet/conexion/AbstractConnection.java
 /home/alba/ExamenDDI/src/main/java/servlet/modelos/Rune.java
 /home/alba/ExamenDDI/src/main/java/servlet/modelos/item.java
+/home/alba/ExamenDDI/src/main/java/servlet/Buscar/BuscarChampion.java
 /home/alba/ExamenDDI/src/main/java/servlet/Repositorio/ChampionAbilitiRepositorio.java
 /home/alba/ExamenDDI/src/main/java/servlet/Repositorio/ChampionRepositorio.java
 /home/alba/ExamenDDI/src/main/java/servlet/modelos/ChampionStat.java

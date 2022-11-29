@@ -13,7 +13,7 @@ import servlet.modelos.Champion;
 public class BuscarChampion extends BaseServlet{
 
 	
-	ChampionRepositorio repository = "call eliminar(?)";;
+	ChampionRepositorio repository =new ChampionRepositorio();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -21,7 +21,7 @@ public class ChampionRepositorio {
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("INSERT INTO champions (id,champion_name,title,lore,tags)" + "VALUES (?, ?, ?,?,?)");
+					.prepareStatement("INSERT INTO champions (id,name,title,lore,tags)" + "VALUES (?, ?, ?,?,?)");
 			preparedStatement.setInt(1, champion.getId());
 			preparedStatement.setString(2, champion.getName());
 			preparedStatement.setString(3, champion.getTitle());
@@ -38,18 +38,24 @@ public class ChampionRepositorio {
 
 	}
 	
-	public void buscar(Champion champion) {
+
+	public List<Champion> buscar() {
+		List<Champion> lista = new ArrayList<>();
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("INSERT INTO champions (id,champion_name,title,lore,tags)" + "VALUES (?, ?, ?,?,?)");
-			preparedStatement.setInt(1, champion.getId());
-			preparedStatement.setString(2, champion.getName());
-			preparedStatement.setString(3, champion.getTitle());
-			preparedStatement.setString(4, champion.getLore());
-			preparedStatement.setString(5, champion.getTags());
-			preparedStatement.executeUpdate();
+					.prepareStatement("SELECT (c.name,c.title,ct.tip,cs.name,cs.value) FROM CHAMPIONS c ,CHAMPION_TIPS ct, CHAMPION_STATS cs WHERE c.id=ct.champion AND cs.champion=c.id AND (cs.name='?')AND (cs.value=?)"+"VALUES (?, ?, ?,?,?,?,?)");
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Champion champion = new Champion();
+				champion.setName(resultSet.getString("name"));
+				champion.setTitle(resultSet.getString("title"));
+				champion.setLore(resultSet.getString("lore"));
+				champion.setTags(resultSet.getString("tags"));
+				lista.add(champion);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
@@ -57,8 +63,9 @@ public class ChampionRepositorio {
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}
-
+		return lista;
 	}
+
 
 	public List<Champion> listAll() {
 		List<Champion> lista = new ArrayList<>();
