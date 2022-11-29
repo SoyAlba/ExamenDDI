@@ -26,16 +26,16 @@ public class AbilityRepositorio {
 		ChampionAbiliti champion = new ChampionAbiliti();
 		try {
 			preparedStatement = conn
-					.prepareStatement("select * from champion_abilities   where rango BETWEEN (?) and (?)");
+					.prepareStatement("select c.name,c.description, c.effect,c.cost,c.rango from champion_abilities as c where rango BETWEEN (?) and (?)");
 			preparedStatement.setInt(1, uno);
 			preparedStatement.setInt(2, dos);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				champion.setName(resultSet.getString("name"));
-				champion.setDescription(resultSet.getString("description"));;
-				champion.setEffect(resultSet.getString("effect"));;
-				champion.setCost(resultSet.getInt("cost"));;
-				champion.setRange(resultSet.getInt("rango"));;
+				champion.setName(resultSet.getString(1));
+				champion.setDescription(resultSet.getString(2));
+				champion.setEffect(resultSet.getString(3));
+				champion.setCost(resultSet.getInt(4));
+				champion.setRange(resultSet.getInt(5));
 				lista.add(champion);
 			}
 		} catch (SQLException e) {
