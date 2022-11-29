@@ -9,7 +9,7 @@ import servlet.BaseServlet;
 import servlet.Repositorio.ChampionRepositorio;
 import servlet.modelos.Champion;
 
-@WebServlet("/insertChampion")
+@WebServlet("/BuscarChampion")
 public class BuscarChampion extends BaseServlet{
 
 	
