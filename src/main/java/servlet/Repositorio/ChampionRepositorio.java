@@ -13,7 +13,8 @@ import servlet.modelos.Champion;
 
 public class ChampionRepositorio {
 
-	private static final String jdbcUrl = "jdbc:h2:file:./src/main/test;";
+	private static final String jdbcUrl = "jdbc:h2:file:./src/main/test INIT=RUNSCRIPT FROM 'classpath:servlet/conexion/lolh2.sql'";
+
 	AbstractConnection manager = new H2Connection();
 
 	public void insert(Champion champion) {

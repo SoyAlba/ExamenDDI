@@ -14,7 +14,7 @@ import servlet.modelos.ChampionAbiliti;
 
 public class AbilityRepositorio {
 
-	private static final String jdbcUrl = "jdbc:h2:file:./src/main/test;";
+	private static final String jdbcUrl = "jdbc:h2:file:./src/main/test INIT=RUNSCRIPT FROM 'classpath:servlet/conexion/lolh2.sql'";
 	AbstractConnection manager = new H2Connection();
 
 	
@@ -26,17 +26,17 @@ public class AbilityRepositorio {
 		ChampionAbiliti champion = new ChampionAbiliti();
 		try {
 			preparedStatement = conn
-					.prepareStatement("select c.name,c.description, c.effect,c.cost,c.rango from champion_abilities as c where rango BETWEEN (?) and (?)");
+					.prepareStatement("select name, description, effect,cost,rango from champion_abilities where rango BETWEEN (?) and (?)");
 			preparedStatement.setInt(1, uno);
 			preparedStatement.setInt(2, dos);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				champion.setName(resultSet.getString(1));
-				champion.setDescription(resultSet.getString(2));
-				champion.setEffect(resultSet.getString(3));
-				champion.setCost(resultSet.getInt(4));
-				champion.setRange(resultSet.getInt(5));
-				lista.add(champion);
+				
+//				champion.setDescription(resultSet.getString(2));
+//				champion.setEffect(resultSet.getString(3));
+//				champion.setCost(resultSet.getInt(4));
+//				champion.setRange(resultSet.getInt(5));
+//				lista.add(champion);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
